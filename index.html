@@ -256,61 +256,182 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    margin: 2rem 0;
+    margin: 3rem 0;
+    perspective: 1000px;
   }
-
+  
   .cta-button {
-    background: linear-gradient(135deg, var(--primary), #d1664b);
+    position: relative;
+    background: linear-gradient(145deg, #E07A5F 0%, #c05a40 50%, #E07A5F 100%);
     color: white;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.75rem;
-    padding: 1rem 2.5rem;
-    border-radius: var(--radius);
-    font-weight: 600;
-    font-size: 1.1rem;
+    gap: 1.2rem;
+    padding: 1.5rem 4rem;
+    border-radius: 100px;
+    font-weight: 700;
+    font-size: clamp(1.1rem, 1.8vw, 1.4rem);
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
     border: none;
-    box-shadow: var(--shadow);
-    position: relative;
     overflow: hidden;
+    z-index: 1;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.15em;
+    box-shadow: 
+      0 10px 30px rgba(224, 122, 95, 0.4),
+      0 0 0 1px rgba(255,255,255,0.1) inset,
+      0 -4px 10px rgba(0,0,0,0.2) inset;
+    transform-style: preserve-3d;
   }
-
-  .cta-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 
-                0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    background: linear-gradient(135deg, #d1664b, var(--primary));
+  
+  .button-text {
+    position: relative;
+    z-index: 3;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
   }
-
-  .cta-button:active {
-    transform: translateY(0);
+  
+  .button-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease;
+    z-index: 3;
+    filter: drop-shadow(0 2px 2px rgba(0,0,0,0.2));
   }
-
-  .cta-button::after {
-    content: "";
+  
+  .button-shine {
     position: absolute;
     top: 0;
-    left: -100%;
+    left: 0;
     width: 100%;
     height: 100%;
     background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(255, 255, 255, 0.2),
-      transparent
+      120deg,
+      rgba(255,255,255,0) 30%,
+      rgba(255,255,255,0.2) 50%,
+      rgba(255,255,255,0) 70%
     );
-    transition: 0.5s;
+    background-size: 200% auto;
+    z-index: 2;
+    animation: shine 3s infinite linear;
   }
-
-  .cta-button:hover::after {
-    left: 100%;
+  
+  .button-particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(
+      circle at center,
+      rgba(255,255,255,0.4) 0%,
+      transparent 70%
+    );
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.6s ease;
   }
-
+  
+  /* Efectos hover */
+  .cta-button:hover {
+    transform: translateY(-5px) rotateX(10deg);
+    box-shadow: 
+      0 15px 40px rgba(224, 122, 95, 0.6),
+      0 0 0 1px rgba(255,255,255,0.15) inset,
+      0 -6px 20px rgba(0,0,0,0.25) inset;
+    background: linear-gradient(145deg, #c05a40 0%, #E07A5F 50%, #c05a40 100%);
+  }
+  
+  .cta-button:hover .button-icon {
+    transform: translateX(8px) scale(1.1);
+  }
+  
+  .cta-button:hover .button-particles {
+    opacity: 1;
+  }
+  
+  /* Efecto active */
+  .cta-button:active {
+    transform: translateY(2px) rotateX(5deg);
+    box-shadow: 
+      0 5px 20px rgba(224, 122, 95, 0.4),
+      0 0 0 1px rgba(255,255,255,0.1) inset,
+      0 -2px 10px rgba(0,0,0,0.3) inset;
+  }
+  
+  /* Animaciones */
+  @keyframes shine {
+    to {
+      background-position: 200% center;
+    }
+  }
+  
+  /* Versión móvil con más impacto */
+  @media (max-width: 768px) {
+    .cta-button {
+      padding: 1.4rem 3.5rem;
+      font-size: 1.2rem;
+      width: 100%;
+      max-width: 320px;
+      border-radius: 80px;
+    }
+    
+    .cta-button:hover {
+      transform: translateY(-3px) rotateX(5deg);
+    }
+    
+    .button-icon {
+      font-size: 1.3em;
+    }
+  }
+  
+  /* Efecto de carga (opcional para acciones) */
+  @keyframes pulse-glow {
+    0% { box-shadow: 0 0 0 0 rgba(224, 122, 95, 0.7); }
+    70% {
+  /* Efectos hover */
+  .cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(224, 122, 95, 0.4);
+  }
+  
+  .cta-button:hover::before {
+    background: linear-gradient(135deg, #c05a40, var(--primary));
+  }
+  
+  .cta-button:hover .button-overlay {
+    opacity: 1;
+  }
+  
+  .cta-button:hover .button-icon {
+    transform: translateX(4px);
+  }
+  
+  /* Efecto active */
+  .cta-button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 10px rgba(224, 122, 95, 0.4);
+  }
+  
+  /* Efecto focus para accesibilidad */
+  .cta-button:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 2px;
+  }
+  
+  /* Versión móvil */
+  @media (max-width: 768px) {
+    .cta-button {
+      padding: 1.1rem 2.5rem;
+      font-size: 1rem;
+      width: 100%;
+      max-width: 300px;
+    }
+    
+    .button-icon {
+      font-size: 1.1em;
+    }
+  }
     /* Product Catalog */
     .product-catalog {
       padding: 3rem 1.25rem;
@@ -640,7 +761,7 @@
       <div class="logo-container">
         <!-- <img src="kitchen-logo.svg" alt="Kitchen Shop Logo" class="logo-img" 
              onerror="this.src='https://via.placeholder.com/32/E07A5F/FFFFFF?text=K'; this.onerror=null;"> -->
-        <h1 class="logo-text">CocinaElite</h1>
+        <h1 class="logo-text">CocinaSana</h1>
       </div>
       
       <div class="menu-container">
@@ -674,14 +795,17 @@
       <p class="hero-subtitle">Colección 2025</p>
       <p class="hero-description">Utensilios profesionales que transformarán tu experiencia culinaria</p>
     </div>
-    
-    <div class="cta-container animate-pulse">
+    <!-- /* este es el boton de la portada*/ -->
+    <div class="cta-container">
       <button class="cta-button" id="ctaButton">
-        Explorar Catálogo
-        <i class="lucide lucide-arrow-right"></i>
+        <span class="button-text">Explorar Catálogo</span>
+        <span class="button-icon">
+          <i class="lucide lucide-arrow-right"></i>
+        </span>
+        <span class="button-shine"></span>
+        <span class="button-particles"></span>
       </button>
     </div>
-  </div>
 </section>
 
   <!-- Product Catalog -->
