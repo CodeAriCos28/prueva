@@ -388,7 +388,13 @@
   /* Efecto de carga (opcional para acciones) */
   @keyframes pulse-glow {
     0% { box-shadow: 0 0 0 0 rgba(224, 122, 95, 0.7); }
-    70% {
+    70% { box-shadow: 0 0 0 15px rgba(224, 122, 95, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(224, 122, 95, 0); }
+  }
+  
+  .cta-button.loading {
+    animation: pulse-glow 1.5s infinite;
+  }
   /* Efectos hover */
   .cta-button:hover {
     transform: translateY(-3px);
