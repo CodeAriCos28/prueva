@@ -252,149 +252,104 @@
   background: linear-gradient(to right, var(--accent), var(--primary));
 }
   /*Este es el boton del portada*/
-  .cta-container {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin: 3rem 0;
-    perspective: 1000px;
+/* Contenedor seguro que no afecta el layout */
+.cta-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 2.5rem 0;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+/* Botón moderno pero contenido */
+.cta-button {
+  position: relative;
+  background: linear-gradient(145deg, #E07A5F 0%, #c05a40 100%);
+  color: white;
+  display: inline-block;
+  padding: 0;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(224, 122, 95, 0.3);
+  transition: all 0.4s ease;
+  max-width: 100%;
+}
+
+/* Contenido del botón */
+.button-content {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 1.25rem 2.5rem;
+  position: relative;
+  z-index: 2;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+/* Efecto highlight */
+.button-highlight {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,0.2),
+    transparent
+  );
+  transition: 0.6s;
+  z-index: 1;
+}
+
+/* Efecto hover seguro */
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(224, 122, 95, 0.4);
+}
+
+.cta-button:hover .button-highlight {
+  left: 100%;
+}
+
+.cta-button:hover .button-icon {
+  transform: translateX(5px);
+}
+
+/* Efecto active */
+.cta-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 5px 15px rgba(224, 122, 95, 0.4);
+}
+
+/* Icono con transición */
+.button-icon {
+  display: flex;
+  transition: transform 0.3s ease;
+}
+
+/* Versión móvil segura */
+@media (max-width: 768px) {
+  .button-content {
+    padding: 1rem 2rem;
+    font-size: 1rem;
   }
   
   .cta-button {
-    position: relative;
-    background: linear-gradient(145deg, #E07A5F 0%, #c05a40 50%, #E07A5F 100%);
-    color: white;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1.2rem;
-    padding: 1.5rem 4rem;
-    border-radius: 100px;
-    font-weight: 700;
-    font-size: clamp(1.1rem, 1.8vw, 1.4rem);
-    cursor: pointer;
-    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-    border: none;
-    overflow: hidden;
-    z-index: 1;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    box-shadow: 
-      0 10px 30px rgba(224, 122, 95, 0.4),
-      0 0 0 1px rgba(255,255,255,0.1) inset,
-      0 -4px 10px rgba(0,0,0,0.2) inset;
-    transform-style: preserve-3d;
-  }
-  
-  .button-text {
-    position: relative;
-    z-index: 3;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-  }
-  
-  .button-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.5s ease;
-    z-index: 3;
-    filter: drop-shadow(0 2px 2px rgba(0,0,0,0.2));
-  }
-  
-  .button-shine {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      120deg,
-      rgba(255,255,255,0) 30%,
-      rgba(255,255,255,0.2) 50%,
-      rgba(255,255,255,0) 70%
-    );
-    background-size: 200% auto;
-    z-index: 2;
-    animation: shine 3s infinite linear;
+    max-width: 320px;
   }
+}
   
-  .button-particles {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-image: radial-gradient(
-      circle at center,
-      rgba(255,255,255,0.4) 0%,
-      transparent 70%
-    );
-    z-index: 1;
-    opacity: 0;
-    transition: opacity 0.6s ease;
-  }
-  
-  /* Efectos hover */
-  .cta-button:hover {
-    transform: translateY(-5px) rotateX(10deg);
-    box-shadow: 
-      0 15px 40px rgba(224, 122, 95, 0.6),
-      0 0 0 1px rgba(255,255,255,0.15) inset,
-      0 -6px 20px rgba(0,0,0,0.25) inset;
-    background: linear-gradient(145deg, #c05a40 0%, #E07A5F 50%, #c05a40 100%);
-  }
-  
-  .cta-button:hover .button-icon {
-    transform: translateX(8px) scale(1.1);
-  }
-  
-  .cta-button:hover .button-particles {
-    opacity: 1;
-  }
-  
-  /* Efecto active */
-  .cta-button:active {
-    transform: translateY(2px) rotateX(5deg);
-    box-shadow: 
-      0 5px 20px rgba(224, 122, 95, 0.4),
-      0 0 0 1px rgba(255,255,255,0.1) inset,
-      0 -2px 10px rgba(0,0,0,0.3) inset;
-  }
-  
-  /* Animaciones */
-  @keyframes shine {
-    to {
-      background-position: 200% center;
-    }
-  }
-  
-  /* Versión móvil con más impacto */
-  @media (max-width: 768px) {
-    .cta-button {
-      padding: 1.4rem 3.5rem;
-      font-size: 1.2rem;
-      width: 100%;
-      max-width: 320px;
-      border-radius: 80px;
-    }
-    
-    .cta-button:hover {
-      transform: translateY(-3px) rotateX(5deg);
-    }
-    
-    .button-icon {
-      font-size: 1.3em;
-    }
-  }
-  
-  /* Efecto de carga (opcional para acciones) */
-  @keyframes pulse-glow {
-    0% { box-shadow: 0 0 0 0 rgba(224, 122, 95, 0.7); }
-    70% { box-shadow: 0 0 0 15px rgba(224, 122, 95, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(224, 122, 95, 0); }
-  }
-  
-  .cta-button.loading {
-    animation: pulse-glow 1.5s infinite;
-  }
   /* Efectos hover */
   .cta-button:hover {
     transform: translateY(-3px);
@@ -802,16 +757,16 @@
       <p class="hero-description">Utensilios profesionales que transformarán tu experiencia culinaria</p>
     </div>
     <!-- /* este es el boton de la portada*/ -->
-    <div class="cta-container">
-      <button class="cta-button" id="ctaButton">
-        <span class="button-text">Explorar Catálogo</span>
-        <span class="button-icon">
-          <i class="lucide lucide-arrow-right"></i>
-        </span>
-        <span class="button-shine"></span>
-        <span class="button-particles"></span>
-      </button>
-    </div>
+<div class="cta-container">
+  <button class="cta-button" id="ctaButton">
+    <span class="button-text">Explorar Catálogo</span>
+    <span class="button-icon">
+      <i class="lucide lucide-arrow-right"></i>
+    </span>
+    <span class="button-shine"></span>
+    <span class="button-particles"></span>
+  </button>
+</div>
 </section>
 
   <!-- Product Catalog -->
