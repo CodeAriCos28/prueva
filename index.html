@@ -3,23 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CocinaElite - Artículos de Cocina Premium</title>
+  <meta name="description" content="CocinaSano: artículos de cocina premium que transformarán tu experiencia culinaria. Catálogo 2025.">
+  <title>CocinaSano - Artículos de Cocina Premium</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/lucide-static@latest/font/lucide.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <style>
-    <!-- :root {
-      --background: #f8f5f2;
-      --foreground: #3a3226;
-      --primary: #E07A5F;
-      --primary-light: #F7C9B6;
-      --secondary: #F2CC8F;
-      --secondary-light: #FDF4E3;
-      --accent: #81B29A;
-      --accent-light: #C3E8D7;
-      --border: #e6d9c9;
-      --radius: 1rem;
-      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    } -->
+
     :root {
       --background: #ffffff; /* Blanco, como el fondo detrás del león */
       --foreground: #000000; /* Negro, como el texto exterior */
@@ -34,7 +24,176 @@
       --radius: 1rem;
       --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     }
-    
+
+  * {
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--foreground);
+    line-height: 1.6;
+  }
+
+/* Contact Section Centered Styles */
+.contact-section {
+  background-color: var(--secondary-light);
+  padding: 5rem 1.5rem;
+  margin-top: 0.1rem;
+  text-align: center;
+}
+
+.contact-container {
+  max-width: 1200px;
+  margin: 10 auto;
+}
+
+.section-title {
+  text-align: center;
+  color: var(--secondary);
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.contact-subtitle {
+  text-align: center;
+  color: var(--primary);
+  font-size: 1.25rem;
+  margin-bottom: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-options-centered {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.contact-card {
+  background-color: white;
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  text-align: center;
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.contact-icon {
+  width: 64px;
+  height: 64px;
+  background-color: rgba(4, 243, 16, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+}
+
+.contact-icon i {
+  font-size: 1.75rem;
+  color: var(--primary);
+}
+
+.contact-card h3 {
+  color: var(--secondary);
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.contact-card p {
+  color: var(--foreground);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.contact-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s;
+  margin-top: auto;
+  border: none;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+}
+
+.whatsapp-button {
+  background-color: #25D366;
+  color: white;
+}
+
+.whatsapp-button:hover {
+  background-color: #128C7E;
+}
+
+.email-button {
+  background-color: var(--primary);
+  color: white;
+}
+
+.email-button:hover {
+  background-color: var(--accent);
+}
+
+.contact-hours {
+  font-size: 0.875rem;
+  color: var(--foreground);
+  opacity: 0.7;
+  margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  .contact-options-centered {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-card {
+    max-width: 100%;
+  }
+}
+
+  /* Animaciones suaves */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .contact-card {
+    animation: fadeIn 0.6s ease forwards;
+  }
+
+  .contact-card:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  .contact-card:nth-child(3) {
+    animation-delay: 0.4s;
+  }
     * {
       box-sizing: border-box;
       margin: 0;
@@ -56,7 +215,7 @@
     .header {
       position: sticky;
       top: 0;
-      z-index: 30;
+      z-index: 10;
       background-color: #0055A5;
       backdrop-filter: blur(4px);
       box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
@@ -95,8 +254,8 @@
       background: none;
       border: none;
       color: var(--background);
-      font-size: 0.875rem;
-      font-weight: 500;
+      font-size: 1rem;
+      font-weight: 700;
       cursor: pointer;
       padding: 0.25rem 0.5rem;
       border-radius: 0.375rem;
@@ -147,7 +306,7 @@
   overflow: hidden;
   display: flex;
   align-items: center;
-  margin-bottom: 3rem;
+  margin-bottom: 0.3rem;
 }
 
 .hero-background {
@@ -267,8 +426,8 @@
   color: white;
   display: block;
   width: 100%;
-  padding: 0;
-  border-radius: 100px;
+  padding: 0.4rem 0rem;
+  border-radius: 5rem;
   border: none;
   cursor: pointer;
   overflow: hidden;
@@ -389,6 +548,7 @@
       padding: 3rem 1.25rem;
       background-color: var(--secondary-light);
       margin: 0 auto;
+      margin-top: 0rem;
     }
 
     .section-title {
@@ -726,6 +886,7 @@
           <a href="#inicio" class="dropdown-item">Inicio</a>
           <a href="#productos" class="dropdown-item">Productos</a>
           <a href="#contacto" class="dropdown-item">Contacto</a>
+          <a href="/prueva/Conocenos.html" class="dropdown-item">Conocenos</a>
         </div>
       </div>
     </div>
@@ -772,10 +933,47 @@
     </div>
   </section>
 
+<!-- Sección de Contacto Centrada -->
+<section id="contacto" class="contact-section">
+  <div class="contact-container">
+    <h2 class="section-title">¿Listo para transformar tu cocina?</h2>
+    <p class="contact-subtitle">Contáctanos para recibir asesoría personalizada y descubrir nuestras soluciones a medida</p>
+    
+    <div class="contact-options-centered">
+      <!-- Opción WhatsApp -->
+      <div class="contact-card whatsapp-card">
+        <div class="contact-icon">
+          <i class="fa-brands fa-whatsapp"></i>
+        </div>
+        <h3>Chat inmediato</h3>
+        <p>Habla directamente con nuestro equipo de especialistas para resolver todas tus dudas</p>
+        <a href="https://wa.me/18294772269" class="contact-button whatsapp-button" target="_blank">
+          <i class="fa-brands fa-whatsapp"></i> Chatear ahora
+        </a>
+        <p class="contact-hours">Disponible 9AM - 6PM, Lunes a Sábado</p>
+      </div>
+      
+      <!-- Opción Correo -->
+      <div class="contact-card email-card">
+        <div class="contact-icon">
+          <i class="fa-regular fa-envelope"></i>
+        </div>
+        <h3>Correo electrónico</h3>
+        <p>Para consultas detalladas, cotizaciones o pedidos especiales a tu medida</p>
+        <a href="mailto:arafaelacosta28@gmail.com" class="contact-button email-button">
+          <i class="fa-regular fa-paper-plane"></i> Enviar email
+        </a>
+        <p class="contact-hours">Respuesta en menos de 24 horas</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 <!-- Footer -->
-<footer id="contacto" class="footer">
+<footer id="footer" class="footer">
   <div class="footer-container">
-    <h2 class="footer-title">Contáctanos</h2>
+    <h2 class="footer-title">CosinaSana</h2>
     
     <div class="contact-info">
       <div class="contact-grid">
@@ -1032,8 +1230,8 @@
 
       modalClose.addEventListener('click', closeModal);
       modalCloseButton.addEventListener('click', closeModal);
-
-///
+    
+    ///
 
       modalWhatsappButton.addEventListener('click', function() {
   // Crear mensaje con enlace a la imagen
@@ -1048,6 +1246,11 @@
   window.open(whatsappUrl, '_blank');
 });
 
+    // Script básico para manejar el envío del formulario
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+    })
+      // Aquí iría la lógica para enviar el formulario
 ///
 
     //   modalWhatsappButton.addEventListener('click', function() {
