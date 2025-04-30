@@ -786,19 +786,15 @@
       margin-bottom: 0.25rem;
     }
 
-    .modal-price {
-      font-weight: 600;
-      color: var(--primary);
-      margin-bottom: 1.5rem;
-    }
-
     .modal-details {
       margin-bottom: 1.5rem;
+
     }
 
     .modal-details h3 {
       font-weight: 500;
       margin-bottom: 0.25rem;
+
     }
 
     .modal-details p {
@@ -1024,12 +1020,17 @@
       <div class="modal-details">
         <h3>Descripción:</h3>
         <p id="modalDescription"></p>
+        <div class="modal-mio">
         <h3>Detalles:</h3>
         <p id="modalFullDetails"></p>
       </div>
       <div class="modal-actions">
-       <!-- <button class="modal-button secondary" id="modalCloseButton">Cerrar</button>  (Este el otro boton de cerrar)-->
-        <button class="modal-button primary" id="modalWhatsappButton">Más información</button>
+        <button class="modal-button secondary" id="modalCloseButton">Cerrar</button>
+        <button class="modal-button primary" id="modalWhatsappButton">Más información
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-left: 5px;">
+            <path d="M18.403 5.633A8.919 8.919 0 0 0 12.053 3c-4.948 0-8.976 4.027-8.978 8.977 0 1.582.413 3.126 1.198 4.488L3 21.116l4.759-1.249a8.981 8.981 0 0 0 4.29 1.093h.004c4.947 0 8.975-4.027 8.977-8.977a8.926 8.926 0 0 0-2.627-6.35m-6.35 13.812h-.003a7.446 7.446 0 0 1-3.798-1.041l-.272-.162-2.824.741.753-2.753-.177-.282a7.448 7.448 0 0 1-1.141-3.971c.002-4.114 3.349-7.461 7.465-7.461a7.413 7.413 0 0 1 5.275 2.188 7.42 7.42 0 0 1 2.183 5.279c-.002 4.114-3.349 7.462-7.461 7.462m4.093-5.589c-.225-.113-1.327-.655-1.533-.73-.205-.075-.354-.112-.504.112s-.58.729-.711.879-.262.168-.486.056-.947-.349-1.804-1.113c-.667-.595-1.117-1.329-1.248-1.554s-.014-.346.099-.458c.101-.1.224-.262.336-.393.112-.131.149-.224.224-.374s.038-.281-.019-.393c-.056-.113-.505-1.217-.692-1.666-.181-.434-.366-.375-.504-.382a9.65 9.65 0 0 0-.429-.008.826.826 0 0 0-.599.28c-.206.225-.785.767-.785 1.871s.804 2.171.916 2.321c.112.15 1.582 2.415 3.832 3.387.536.231.954.369 1.279.473.537.171 1.026.146 1.413.089.431-.064 1.327-.542 1.514-1.066.187-.524.187-.973.131-1.067-.056-.094-.207-.151-.43-.263"/>
+          </svg>
+        </button>
       </div>
     </div>
   </div>
@@ -1063,115 +1064,222 @@
         document.getElementById('productos').scrollIntoView({ behavior: 'smooth' });
       });
 
-      // Datos de los Productos
-      const products = [
-        {
-          id: 1,
-          name: 'Sistema de Cosina Familiar 10 Piezas',
-          image: 'imagenes/a1.webp',
-          description: 'El sistema más completo que ofrece INNOVE™. Disfruta de la comodidad de un sistema de cocina que no solo sirve para preparar todo tipo de platos, sin importar el tamaño de tu familia ni lo sofisticadas que sean tus recetas..',
-          details: 'Tapa pequeña,Cacerola de 2 cuartos,Tapa mediana,Vaporera/Colador pequeño,Olla holandesa de 4 cuartos,Sartén de 8 pulgadas,Tapa grande,Sartén de 10½ pulgadas,Tapa abovedada,10 piezas.'
-        }, //Listo 1
-        {
-          id: 2,
-          name: 'Sistema de Cosina Expesial 8 Piezas',
-          image: 'imagenes/a2.webp',
-          description: 'El Sistema de Cocina Especial INNOVE™ te ofrece estilo superior y versatilidad; incluye una gran variedad de utensilios para facilitar tu experiencia culinaria e inspirar la creación de los platos más deliciosos.',
-          details: 'Tapa pequeña, Cacerola de 2 cuartos, Tapa mediana, Olla holandesa de 3 cuartos, Tapa grande, Olla holandesa de 8 cuartos, Tapa para paellera, Paellera de 14 pulgadas.'
-        }, //Listo 2
-        {
-          id: 3,
-          name: 'Sistema de Cosina Clasico 7 piezas ',
-          image: 'imagenes/a3.webp',
-          description: 'Sistema DE Cosina Clasico. Disfrute cocinar con INNOVE™ de Royal Prestige y su Sistema de Cocina Clásico, cuyo método de cocción probado preserva el valor nutricional y el sabor de sus platillos.',
-          details: 'Tapa pequeña, Cacerola de 2 cuartos, Tapa mediana, Sartén de 8 pulgadas, Olla holandesa de 4 cuartos, Tapa grande, Sartén de 10½ pulgadas.'
-        }, //Listo 3
-        {
-          id: 4,
-          name: 'Sistema de Cosina Complementario',
-          image: 'imagenes/a4.webp',
-          description: 'Sistema De Cosina Complementario. Complemente su hogar con el Sistema de Cocina Complementario y aproveche al máximo sus beneficios.',
-          details: 'Tapa mediana, Olla holandesa de 3 cuartos, Olla holandesa de 6 cuartos, Tapa grande, Sartén de 10½ pulgadas.'
-        }, //Listo 4
-        {
-          id: 5,
-          name: 'Las Ollas Grandes ',
-          image: 'imagenes/a5.webp',
-          description: 'Estas atractivas piezas fueron concebidas para ser tus mejores aliadas al preparar platillos tradicionales para reuniones familiares. Están construidas para permitir una distribución más eficiente del calor, ideales para cocinar mayores cantidades. Además, las asas electro-soldadas ofrecen seguridad, estabilidad y un agarre cómodo.',
-          details: 'Olla alta de 12 cuartos con tapa, Olla alta de 20 cuartos con tapa, Olla alta de 30 cuartos con tapa.'
-        }, // Listo 5
-        {
-          id: 6,
-          name: 'Las Paelleras',
-          image: 'imagenes/a6.webp',
-          description: 'INNOVE™ Paelleras. Las paelleras INNOVE™ hacen mucho más que arroz. Gracias a su diseño, construcción y capacidad, son ideales para crear cientos de deliciosas recetas. La paellera de 10 pulgadas incluye asas electro-soldadas.',
-          details: 'Paellera de 10 pulgadas, Paellera de 14 pulgadas.'
-        },
-        //segunda
-        {
-          id: 7,
-          name: 'Los Sartenes Gourmets',
-          image: 'imagenes/a7.webp',
-          description: 'Los juegos gourmet INNOVE™ han sido diseñados para preparar platillos tradicionales, incluyendo fritos. Su construcción permite cocinar variedad de recetas con menos aceite o incluso sin él.',
-          details: 'Sartén gourmet de 8 pulgadas con tapa, Sartén gourmet de 10 pulgadas con tapa, Sartén gourmet de 12 pulgadas con tapa, Las piezas se venden por separado.'
-        }, // Listo 7
-        {
-          id: 8,
-          name: 'Las Ollas de Presion',
-          image: 'imagenes/a8.webp',
-          description: 'Disfrute una cocina más rápida, segura y saludable con las Ollas a Presión Royal Prestige®. Gracias a su distribución uniforme de calor, sus alimentos se cocinan a la perfección, manteniendo su delicioso sabor mientras ahorra tiempo en la cocina. Los mecanismos de seguridad avanzados le permiten preparar recetas exquisitas, con las más altas medidas de seguridad y absoluta confianza.',
-          details: 'Cocción más rápida, Distribución uniforme de calor, Preserva los sabores, Mecanismos de seguridad avanzados, Ahorro de tiempo, Cocina saludable.'
-        }, //Listo 8
-        {
-          id: 9,
-          name: 'Las Planchas',
-          image: 'imagenes/a9.webp',
-          description: 'Estos tres utensilios son ideales para asar carnes, preparar huevos estrellados o revueltos, calentar tortillas y elaborar el desayuno familiar. Compatibles con inducción y seguros para horno hasta 220°C (425°F).',
-          details: 'Parrilla redonda, Parrilla cuadrada, Parrilla doble, Las piezas se venden por separado.'
-        }, // Listo 9
-        {
-          id: 10,
-          name: 'El Wok',
-          image: 'imagenes/a10.webp',
-          description: 'Nuestro Wok le permitirá preparar las recetas más creativas. Úselo para hacer salteados deliciosos o arroz frito con mariscos y vegetales de temporada. Cuenta con un mango largo y un asa lateral para mayor seguridad y facilidad de uso. Su diseño elegante combina con la estética de los Sistemas de Cocina INNOVE™.',
-          details: 'Capacidad 4 cuartos, Mango largo, Asa lateral, Diseño elegante, Ideal para salteados, Perfecto para arroz frito, Compatible con Sistemas de Cocina INNOVE™, Diseño funcional con doble agarre.'
-        }, //Listo 10
-        {
-          id: 11,
-          name: 'Olla de 60 Cuaros',
-          image: 'imagenes/a11.webp',
-          description: 'Para que tus grandes celebraciones merecen el tamaño adecuado de utensilios, Royal Prestige® diseñó esta espaciosa olla alta. Con una capacidad de 56.7 litros, será el mejor utensilio para cocinar recetas tradicionales para grandes reuniones. Incluye asas electro-soldadas que ofrecen seguridad, estabilidad y un agarre cómodo.',
-          details: 'Olla alta de 56.7 litros, Capacidad extra grande, Ideal para celebraciones, Asas electro-soldadas, Seguridad y estabilidad, Agarres cómodos, Diseñada para grandes cantidades, Perfecta para recetas tradicionales.'
-        }, // Listo 11
-        {
-          id: 12,
-          name: 'Los Coladores',
-          image: 'imagenes/a12.webp',
-          description: 'Diseñados especialmente para ollas holandesas de 3, 4, 6 u 8 cuartos, estas piezas son ideales para preparar pastas, caldos, sopas y guisos. Fabricados en acero inoxidable quirúrgico T-304, estos coladores/vaporeras son el complemento perfecto para el Sistema de Cocina Inteligente Avanzado INNOVE™ de Royal Prestige®.',
-          details: 'Colador/Vaporera Junior, Colador/Vaporera Senior, Acero inoxidable quirúrgico T-304, Compatible con ollas de 3-8 cuartos, Ideal para pastas y sopas, Complemento para sistema de cocina INNOVE™.'
-        }, //Listo 12
-        {
-          id: 13,
-          name: 'Pavera Ovalada',
-          image: 'imagenes/a13.webp',
-          description: 'La Asadera Ovalada se convertirá en la reina de tus fiestas. Su diseño versátil permite usarla tanto en horno como en estufa, para que puedas preparar una variedad de recetas en grandes cantidades durante todo el año. Incluye asas robustas y cómodas para un transporte más seguro.',
-          details: 'Asadera ovalada, Uso en horno y estufa, Asas ergonómicas, Capacidad para grandes porciones, Diseño versátil, Ideal para todo #3 el año, Perfecta para celebraciones, Cocción uniforme.'
-        }, // Listo 13
-        {
-          id: 14,
-          name: 'Casserole',
-          image: 'imagenes/a14.webp',
-          description: 'Nuestra Cazuela Royal Prestige® ha sido diseñada para preparar porciones individuales, champiñones salteados, camarones o simplemente huevos en todas sus presentaciones. Estas son algunas de las pequeñas porciones que pueden prepararse en esta hermosa y práctica cazuela.',
-          details: 'Cazuela individual, Ideal para porciones pequeñas, Perfecta para saltear champiñones, Ideal para preparar camarones, Versátil para huevos en todas sus formas, Diseño práctico y estético, Material de alta calidad.'
-        }, // Listo 14
-        {
-          id: 15,
-          name: 'sartenes Delux Easy Release',
-          image: 'imagenes/a15.webp',
-          description: 'Las sartenes Royal Prestige Deluxe Easy Release ofrecen excelente antiadherencia y notable durabilidad.',
-          details: 'Fabricadas en Italia, Diseño personalizado, Tecnología de plasma avanzada, Asas con silicona auxiliar, Disponible en tres tamaños (12, 10 y 8 pulgadas), 4 veces más resistente a rayones que sartenes antiadherentes convencionales, También disponible con tapa metálica.'
-        } // Listo 15
-      ]
+// Datos de los Productos
+const products = [
+  {
+    id: 1,
+    name: 'Sistema de Cocina Familiar 10 Piezas',
+    image: 'imagenes/a1.webp',
+    description: 'El sistema más completo que ofrece INNOVE™. Disfrute de la comodidad de un sistema de cocina que no solo sirve para preparar todo tipo de platos, sin importar el tamaño de su familia ni lo sofisticadas que sean sus recetas.',
+    details: [
+      '• Tapa pequeña',
+      '• Cacerola de 2 cuartos',
+      '• Tapa mediana',
+      '• Vaporera/Colador pequeño',
+      '• Olla holandesa de 4 cuartos',
+      '• Sartén de 8 pulgadas',
+      '• Tapa grande',
+      '• Sartén de 10½ pulgadas',
+      '• Tapa abovedada',
+      '• 10 piezas en total'
+    ]
+  },
+  {
+    id: 2,
+    name: 'Sistema de Cocina Especial 8 Piezas',
+    image: 'imagenes/a2.webp',
+    description: 'El Sistema de Cocina Especial INNOVE™ le ofrece estilo superior y versatilidad; incluye una gran variedad de utensilios para facilitar su experiencia culinaria e inspirar la creación de los platos más deliciosos.',
+    details: [
+      '• Tapa pequeña',
+      '• Cacerola de 2 cuartos',
+      '• Tapa mediana',
+      '• Olla holandesa de 3 cuartos',
+      '• Tapa grande',
+      '• Olla holandesa de 8 cuartos',
+      '• Tapa para paellera',
+      '• Paellera de 14 pulgadas'
+    ]
+  },
+  {
+    id: 3,
+    name: 'Sistema de Cocina Clásico 7 Piezas',
+    image: 'imagenes/a3.webp',
+    description: 'Sistema de Cocina Clásico. Disfrute cocinando con INNOVE™ de Royal Prestige y su Sistema de Cocina Clásico, cuyo método de cocción probado preserva el valor nutricional y el sabor de sus platillos.',
+    details: [
+      '• Tapa pequeña',
+      '• Cacerola de 2 cuartos',
+      '• Tapa mediana',
+      '• Sartén de 8 pulgadas',
+      '• Olla holandesa de 4 cuartos',
+      '• Tapa grande',
+      '• Sartén de 10½ pulgadas'
+    ]
+  },
+  {
+    id: 4,
+    name: 'Sistema de Cocina Complementario',
+    image: 'imagenes/a4.webp',
+    description: 'Sistema de Cocina Complementario. Complemente su hogar con el Sistema de Cocina Complementario y aproveche al máximo sus beneficios.',
+    details: [
+      '• Tapa mediana',
+      '• Olla holandesa de 3 cuartos',
+      '• Olla holandesa de 6 cuartos',
+      '• Tapa grande',
+      '• Sartén de 10½ pulgadas'
+    ]
+  },
+  {
+    id: 5,
+    name: 'Las Ollas Grandes',
+    image: 'imagenes/a5.webp',
+    description: 'Estas atractivas piezas fueron concebidas para ser sus mejores aliadas al preparar platillos tradicionales para reuniones familiares. Están construidas para permitir una distribución más eficiente del calor, ideales para cocinar mayores cantidades. Además, las asas electro-soldadas ofrecen seguridad, estabilidad y un agarre cómodo.',
+    details: [
+      '• Olla alta de 12 cuartos con tapa',
+      '• Olla alta de 20 cuartos con tapa',
+      '• Olla alta de 30 cuartos con tapa'
+    ]
+  },
+  {
+    id: 6,
+    name: 'Las Paelleras',
+    image: 'imagenes/a6.webp',
+    description: 'INNOVE™ Paelleras. Las paelleras INNOVE™ hacen mucho más que arroz. Gracias a su diseño, construcción y capacidad, son ideales para crear cientos de deliciosas recetas. La paellera de 10 pulgadas incluye asas electro-soldadas.',
+    details: [
+      '• Paellera de 10 pulgadas',
+      '• Paellera de 14 pulgadas'
+    ]
+  },
+  {
+    id: 7,
+    name: 'Los Sartenes Gourmet',
+    image: 'imagenes/a7.webp',
+    description: 'Los juegos gourmet INNOVE™ han sido diseñados para preparar platillos tradicionales, incluyendo fritos. Su construcción permite cocinar variedad de recetas con menos aceite o incluso sin él.',
+    details: [
+      '• Sartén gourmet de 8 pulgadas con tapa',
+      '• Sartén gourmet de 10 pulgadas con tapa',
+      '• Sartén gourmet de 12 pulgadas con tapa',
+      '• Las piezas se venden por separado'
+    ]
+  },
+  {
+    id: 8,
+    name: 'Las Ollas de Presión',
+    image: 'imagenes/a8.webp',
+    description: 'Disfrute una cocina más rápida, segura y saludable con las Ollas a Presión Royal Prestige®. Gracias a su distribución uniforme de calor, sus alimentos se cocinan a la perfección, manteniendo su delicioso sabor mientras ahorra tiempo en la cocina. Los mecanismos de seguridad avanzados le permiten preparar recetas exquisitas, con las más altas medidas de seguridad y absoluta confianza.',
+    details: [
+      '• Cocción más rápida',
+      '• Distribución uniforme de calor',
+      '• Preserva los sabores',
+      '• Mecanismos de seguridad avanzados',
+      '• Ahorro de tiempo',
+      '• Cocina saludable'
+    ]
+  },
+  {
+    id: 9,
+    name: 'Las Planchas',
+    image: 'imagenes/a9.webp',
+    description: 'Estos tres utensilios son ideales para asar carnes, preparar huevos estrellados o revueltos, calentar tortillas y elaborar el desayuno familiar. Compatibles con inducción y seguros para horno hasta 220°C (425°F).',
+    details: [
+      '• Parrilla redonda',
+      '• Parrilla cuadrada',
+      '• Parrilla doble',
+      '• Las piezas se venden por separado'
+    ]
+  },
+  {
+    id: 10,
+    name: 'El Wok',
+    image: 'imagenes/a10.webp',
+    description: 'Nuestro Wok le permitirá preparar las recetas más creativas. Úselo para hacer salteados deliciosos o arroz frito con mariscos y vegetales de temporada. Cuenta con un mango largo y un asa lateral para mayor seguridad y facilidad de uso. Su diseño elegante combina con la estética de los Sistemas de Cocina INNOVE™.',
+    details: [
+      '• Capacidad 4 cuartos',
+      '• Mango largo',
+      '• Asa lateral',
+      '• Diseño elegante',
+      '• Ideal para salteados',
+      '• Perfecto para arroz frito',
+      '• Compatible con Sistemas de Cocina INNOVE™',
+      '• Diseño funcional con doble agarre'
+    ]
+  },
+  {
+    id: 11,
+    name: 'Olla de 60 Cuartos',
+    image: 'imagenes/a11.webp',
+    description: 'Para que sus grandes celebraciones merezcan el tamaño adecuado de utensilios, Royal Prestige® diseñó esta espaciosa olla alta. Con una capacidad de 56.7 litros, será el mejor utensilio para cocinar recetas tradicionales para grandes reuniones. Incluye asas electro-soldadas que ofrecen seguridad, estabilidad y un agarre cómodo.',
+    details: [
+      '• Olla alta de 56.7 litros',
+      '• Capacidad extra grande',
+      '• Ideal para celebraciones',
+      '• Asas electro-soldadas',
+      '• Seguridad y estabilidad',
+      '• Agarres cómodos',
+      '• Diseñada para grandes cantidades',
+      '• Perfecta para recetas tradicionales'
+    ]
+  },
+  {
+    id: 12,
+    name: 'Los Coladores',
+    image: 'imagenes/a12.webp',
+    description: 'Diseñados especialmente para ollas holandesas de 3, 4, 6 u 8 cuartos, estas piezas son ideales para preparar pastas, caldos, sopas y guisos. Fabricados en acero inoxidable quirúrgico T-304, estos coladores/vaporeras son el complemento perfecto para el Sistema de Cocina Inteligente Avanzado INNOVE™ de Royal Prestige®.',
+    details: [
+      '• Colador/Vaporera Junior',
+      '• Colador/Vaporera Senior',
+      '• Acero inoxidable quirúrgico T-304',
+      '• Compatible con ollas de 3-8 cuartos',
+      '• Ideal para pastas y sopas',
+      '• Complemento para sistema de cocina INNOVE™'
+    ]
+  },
+  {
+    id: 13,
+    name: 'Pavera Ovalada',
+    image: 'imagenes/a13.webp',
+    description: 'La Asadera Ovalada se convertirá en la reina de sus fiestas. Su diseño versátil permite usarla tanto en horno como en estufa, para que pueda preparar una variedad de recetas en grandes cantidades durante todo el año. Incluye asas robustas y cómodas para un transporte más seguro.',
+    details: [
+      '• Asadera ovalada',
+      '• Uso en horno y estufa',
+      '• Asas ergonómicas',
+      '• Capacidad para grandes porciones',
+      '• Diseño versátil',
+      '• Ideal para todo el año',
+      '• Perfecta para celebraciones',
+      '• Cocción uniforme'
+    ]
+  },
+  {
+    id: 14,
+    name: 'Casserole',
+    image: 'imagenes/a14.webp',
+    description: 'Nuestra Cazuela Royal Prestige® ha sido diseñada para preparar porciones individuales, champiñones salteados, camarones o simplemente huevos en todas sus presentaciones. Estas son algunas de las pequeñas porciones que pueden prepararse en esta hermosa y práctica cazuela.',
+    details: [
+      '• Cazuela individual',
+      '• Ideal para porciones pequeñas',
+      '• Perfecta para saltear champiñones',
+      '• Ideal para preparar camarones',
+      '• Versátil para huevos en todas sus formas',
+      '• Diseño práctico y estético',
+      '• Material de alta calidad'
+    ]
+  },
+  {
+    id: 15,
+    name: 'Sartenes Deluxe Easy Release',
+    image: 'imagenes/a15.webp',
+    description: 'Las sartenes Royal Prestige Deluxe Easy Release ofrecen excelente antiadherencia y notable durabilidad.',
+    details: [
+      '• Fabricadas en Italia',
+      '• Diseño personalizado',
+      '• Tecnología de plasma avanzada',
+      '• Asas con silicona auxiliar',
+      '• Disponible en tres tamaños (12, 10 y 8 pulgadas)',
+      '• 4 veces más resistente a rayones que sartenes antiadherentes convencionales',
+      '• También disponible con tapa metálica'
+    ]
+  }
+]
 
       // Render products
       const productGrid = document.getElementById('productGrid');
@@ -1220,7 +1328,7 @@
         document.body.style.overflow = 'hidden';
 
 
-        openProductModal(product);
+       // openProductModal(product);
       }
 
       function closeModal() {
@@ -1233,38 +1341,32 @@
     
     ///
 
-      modalWhatsappButton.addEventListener('click', function() {
-  // Crear mensaje con enlace a la imagen
-  const text = `Hola! Me interesa el producto *${currentProduct.name}.\n\n` +
-               `*Descripción:* ${currentProduct.description}\n\n` +
-               `Puedes ver el producto aquí: ${window.location.href}#product-${currentProduct.id}\n\n`;
+     modalWhatsappButton.addEventListener('click', function() {
+      // Crear mensaje con enlace a la imagen
+      const text = `Hola! Me interesa el producto *${currentProduct.name}.\n\n` +
+                  `*Descripción:* ${currentProduct.description}\n\n` +
+                  `Puedes ver el producto aquí: ${window.location.href}#product-${currentProduct.id}\n\n`;
 
-  // Usar el número correcto de tu código (18294772269)
-  const whatsappUrl = `https://wa.me/18294772269?text=${encodeURIComponent(text)}`;
+      // Usar el número correcto de tu código (18294772269)
+      const whatsappUrl = `https://wa.me/18294772269?text=${encodeURIComponent(text)}`;
 
-  // Abrir WhatsApp en una nueva ventana
-  window.open(whatsappUrl, '_blank');
-});
-
-    // Script básico para manejar el envío del formulario
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-    })
-      // Aquí iría la lógica para enviar el formulario
+      // Abrir WhatsApp en una nueva ventana
+      window.open(whatsappUrl, '_blank');
+    }); 
 ///
 
-    //   modalWhatsappButton.addEventListener('click', function() {
-    //     const text = `Hola! Me interesa el producto *${currentProduct.name}* de CocinaElite. ¿Podrías darme más información? ${window.location.href}#product-${currentProduct.id}`;
-    //     const whatsappUrl = `https://wa.me/18294772269?text=${encodeURIComponent(text)}`;
-    //     window.open(whatsappUrl, '_blank');
-    //   });
+      // modalWhatsappButton.addEventListener('click', function() {
+     //   const text = `Hola! Me interesa el producto *${currentProduct.name}* de CocinaElite. ¿Podrías darme más información? ${window.location.href}#product-${currentProduct.id}`;
+     //   const whatsappUrl = `https://wa.me/18294772269?text=${encodeURIComponent(text)}`;
+      //   window.open(whatsappUrl, '_blank');
+      // });
 
       // Close modal when clicking outside content
       modal.addEventListener('click', function(e) {
         if (e.target === modal) {
           closeModal();
         }
-      });
+     });
 
       // Show WhatsApp button on mobile
       function checkIsMobile() {

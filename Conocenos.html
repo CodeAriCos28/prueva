@@ -125,65 +125,106 @@
     }
 
     /* Hero Section for About Us */
-    .about-hero {
-      position: relative;
-      height: 60vh;
-      min-height: 500px;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      margin-bottom: 3rem;
-    }
+/* Hero Section para About Us */
+.about-hero {
+  position: relative;
+  height: 100vh; /* Cambiado a 100vh para ocupar toda la pantalla */
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
 
-    .about-hero-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      filter: brightness(0.7);
-    }
+.about-hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.7);
+  z-index: 1;
+}
 
-    .about-hero-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(
-        to top, 
-        rgba(1, 137, 247, 0.8) 0%, 
-        rgba(0, 113, 200, 0.4) 50%, 
-        rgba(244, 245, 246, 0.2) 100%
-      );
-    }
+.about-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to top, 
+    rgba(202, 227, 245, 0.8) 40%, 
+    rgba(246, 249, 250, 0.4) 30%, 
+  );
+  z-index: 2;
+}
 
-    .about-hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 1200px;
-      width: 90%;
-      margin: 0 auto;
-      color:white;
-      padding: 2rem;
-      text-align: center;
-    }
+.about-hero-content {
+  position: relative;
+  z-index: 3;
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+  color: white;
+  padding: 2rem;
+  text-align: center;
+  animation: fade-in 1s ease-out forwards;
+}
 
-    .about-hero-title {
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      font-weight: 800;
-      line-height: 1.1;
-      margin-bottom: 1rem;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-    }
+.about-hero-title {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
 
-    .about-hero-subtitle {
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: var(--subtitule);
-      margin-bottom: 1.5rem;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.2);
-    }
+.about-hero-subtitle {
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  font-weight: 700;
+  color: var(--subtitule);
+  margin-bottom: 1.5rem;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
 
+/* Añadimos animación para entrada del texto */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mejoramos la responsive */
+@media (max-width: 768px) {
+  .about-hero {
+    height: 100vh; /* Mantiene 100vh incluso en móviles */
+  }
+  
+  .about-hero-title {
+    font-size: clamp(2rem, 7vw, 3rem);
+  }
+  
+  .about-hero-subtitle {
+    font-size: clamp(1rem, 4vw, 1.5rem);
+  }
+}
+
+/* Para pantallas muy pequeñas */
+@media (max-width: 480px) {
+  .about-hero-content {
+    padding: 1rem;
+  }
+}
+
+/* Para pantallas muy altas (para evitar que se vea demasiado estirado) */
+@media (min-height: 1000px) {
+  .about-hero {
+    height: 90vh;
+  }
+}
     /* About Content Sections */
     .about-section {
       max-width: 1200px;
@@ -576,15 +617,15 @@
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="about-hero">
-    <img src="imagenes/a1.webp" alt="Cargando" class="about-hero-image">   
-     <div class="about-hero-overlay"></div>
-    <div class="about-hero-content">
-      <h1 class="about-hero-title">Nuestra Pasión por la Excelencia Culinaria</h1>
-      <p class="about-hero-subtitle">Más de 15 años transformando cocinas</p>
-    </div>
-  </section>
+<!-- Hero Section mejorado -->
+<section class="about-hero">
+  <img src="imagenes/portada2.webp" alt="Nuestra Cocina" class="about-hero-image">
+  <div class="about-hero-overlay"></div>
+  <div class="about-hero-content">
+    <h1 class="about-hero-title">Nuestra Pasión por la Excelencia Culinaria</h1>
+    <p class="about-hero-subtitle">Más de 15 años transformando cocinas</p>
+  </div>
+</section>
 
   <!-- About Us Section -->
   <section class="about-section">
